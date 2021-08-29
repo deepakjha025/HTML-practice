@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating a to do list</title>
+</head>
+<body>
+    <h2><b>To Do list</b></h2>
+    <div class="container">
+    <div class="app">
+
+    <form>
+        <input type="text" placeholder="kindly enter new task in order">
+        <button type="submit" onclick="Task();return false">&plus;</button>
+    </form>
+    <ol>
+    </ol>
+    </div>
+    </div>
+    <script>
+    function Task() {
+        let task = document.querySelector('form input');
+        let list = document.querySelector('ol');
+        if (task.value === "") {
+          alert("Add task");
+          return;
+        }
+        let li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" >
+                        <span>${task.value}</span>
+                        <i></i>`;
+        list.insertBefore(li, list.children[0]);
+        task.value = "";
+      }
+    </script>
+</body>
+</html>
